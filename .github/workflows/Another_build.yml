@@ -1,4 +1,4 @@
-name: Build and Upload Artifacts
+name: Update Kernel
 
 on:
   workflow_dispatch:
