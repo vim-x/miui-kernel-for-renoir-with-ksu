@@ -22,7 +22,7 @@ jobs:
         run: | 
           git config --global user.email "you@example.com"
           git config --global user.name "zeroXone-github"
-          git submodule add https://github.com/rsuntk/KernelSU.git
+          git submodule add https://github.com/kirilll1aliuk/KernelSU.git
           git add .
           git commit -m "Blump up KSU for NonGKI kernel"
           chmod +x ./build.sh
