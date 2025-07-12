@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "zeroXone-github"
           git submodule add https://github.com/rsuntk/KernelSU.git
           git add .
-          git commit -m "Blump up KSU for NonGKI kernel"
+          git commit -m "Adding KSU for NonGKI kernel"
           chmod +x ./build.sh
           ./build.sh all renoir
       - name: Compress
