@@ -22,7 +22,7 @@ jobs:
           
       - name: Install requirements
         run: | 
-          python3 -m pip install -r pip-requirements.txt
+          python3 -m pip install -r pip-requirements.txt --break-system-packages
 
       - name: Building UEFI 
         run: | 
