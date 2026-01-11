@@ -17,18 +17,18 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y pip git mono-devel build-essential lld uuid-dev nasm gcc-aarch64-linux-gnu python3 python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld
-
-          
-      - name: Install requirements
+          sudo apt install -y clang lld python2 llvm git make gcc flex bison bc libssl-dev ccache libncurses5-dev libncursesw5-dev libtinfo5 cmake python3
+      - name: Build Project
         run: | 
-          python3 -m pip install -r pip-requirements.txt --break-system-packages
-
-      - name: Building UEFI 
-        run: | 
-          chmod +x ./build_uefi.sh
-          bash ./build_uefi.sh -d tapas
-    
+          git config --global user.email "you@example.com"
+          git config --global user.name "zeroXone-github"
+          git submodule add https://github.com/rsuntk/KernelSU.git
+          git add .
+          git commit -m "Adding KSU for NonGKI kernel"
+          chmod +x ./build.sh
+          ./build.sh all renoir
+      - name: Compress
+        run: tar -czvf build.tar.gz ../out/anykernel
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
